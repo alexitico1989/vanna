@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Para ti ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      background:
+        radial-gradient(circle at top, #4a1833 0%, transparent 45%),
+        linear-gradient(145deg, #090509, #1b0b17 55%, #080408);
+
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .contenedor {
+      width: 90%;
+      max-width: 520px;
+      padding: 45px 28px;
+
+      text-align: center;
+
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+
+      backdrop-filter: blur(15px);
+
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.55);
+
+      animation: aparecer 1.4s ease;
+    }
+
+    .corazon {
+      font-size: 58px;
+      margin-bottom: 15px;
+
+      animation: latido 2s infinite;
+    }
+
+    .pequeno {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+
+    h1 {
+      margin: 18px 0;
+
+      font-size: 38px;
+      line-height: 1.2;
+      font-weight: normal;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.7;
+      color: #f4e9ef;
+    }
+
+    .final {
+      margin-top: 35px;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      opacity: 0;
+
+      animation:
+        aparecer 1s ease 2.5s forwards,
+        respirar 2s ease-in-out 3.5s infinite;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+    }
+
+    @keyframes respirar {
+      0%, 100% {
+        opacity: 0.55;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contenedor">
+
+    <div class="corazon">
+      ❤️
+    </div>
+
+    <div class="pequeno">
+      Una pequeña sorpresa
+    </div>
+
+    <h1>
+      ¿Te imaginaste esto?
+    </h1>
+
+    <p>
+      No, ¿cierto?
+    </p>
+
+    <p>
+      Entonces todavía falta una última cosa...
+    </p>
+
+    <div class="final">
+      Ahora baja el parasol ↓
+    </div>
+
+  </div>
+
+</body>
+</html>
