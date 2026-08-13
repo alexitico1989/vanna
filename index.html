@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Vanna ❤️</title>
 
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top, #4a1833 0%, transparent 45%),
+        linear-gradient(145deg, #090509, #1b0b17 55%, #080408);
+
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 520px;
+    padding: 45px 28px;
+    text-align: center;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 28px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.55);
+
+    animation: aparecer 1.4s ease;
+}
+
+.corazon {
+    font-size: 58px;
+    margin-bottom: 15px;
+    animation: latido 2s infinite;
+}
+
+.pequeno {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.55;
+}
+
+h1 {
+    margin: 18px 0;
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: normal;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #f4e9ef;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+
+    color: white;
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    background: rgba(255,255,255,0.08);
+
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: rgba(255,255,255,0.18);
+    transform: scale(1.05);
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="corazon">❤️</div>
+
+    <div class="pequeno">
+        Para alguien especial
+    </div>
+
+    <h1>
+        Vanna...
+    </h1>
+
+    <p>
+        Hay cosas que simplemente no se pueden explicar con palabras.
+    </p>
+
+    <p>
+        Pero creo que esta merece que sigas descubriéndola.
+    </p>
+
+    <a class="boton" href="inicio.html">
+        Continuar ❤️
+    </a>
+
+</div>
+
+</body>
+</html>
