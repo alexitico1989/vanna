@@ -29,6 +29,9 @@ body {
 .contenedor {
     width: 90%;
     max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+
     padding: 45px 28px;
     text-align: center;
 
@@ -73,7 +76,7 @@ p {
 
 .boton {
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 15px;
     padding: 14px 28px;
 
     border: 1px solid rgba(255,255,255,0.25);
@@ -88,11 +91,54 @@ p {
     background: rgba(255,255,255,0.08);
 
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .boton:hover {
     background: rgba(255,255,255,0.18);
     transform: scale(1.05);
+}
+
+.opciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.opcion {
+    width: 100%;
+    padding: 15px 10px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 18px;
+
+    color: white;
+    background: rgba(255,255,255,0.06);
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.opcion:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+}
+
+.mensaje {
+    margin-top: 25px;
+    min-height: 70px;
+}
+
+.exito {
+    animation: aparecer 0.8s ease;
+}
+
+.exito .corazon {
+    animation: latido 1s infinite;
 }
 
 @keyframes aparecer {
@@ -116,12 +162,31 @@ p {
         transform: scale(1.12);
     }
 }
+
+@media (max-width: 450px) {
+
+    .contenedor {
+        padding: 35px 20px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .opciones {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="contenedor">
+<div class="contenedor" id="contenido">
 
     <div class="corazon">❤️</div>
 
@@ -141,11 +206,158 @@ p {
         Pero creo que esta merece que sigas descubriéndola.
     </p>
 
-    <a class="boton" href="inicio.html">
+    <button class="boton" onclick="mostrarBusqueda()">
         Continuar ❤️
-    </a>
+    </button>
 
 </div>
+
+
+<script>
+
+function mostrarBusqueda() {
+
+    const contenido = document.getElementById("contenido");
+
+    contenido.innerHTML = `
+
+        <div class="corazon">🔎</div>
+
+        <div class="pequeno">
+            Primera pista
+        </div>
+
+        <h1>
+            Ahora comienza el juego...
+        </h1>
+
+        <p>
+            Hay algo que dejé para ti dentro del auto.
+        </p>
+
+        <p>
+            Pero no te voy a decir dónde.
+            Tendrás que descubrirlo.
+        </p>
+
+        <p>
+            <strong>¿Dónde crees que está?</strong>
+        </p>
+
+        <div class="opciones">
+
+            <button class="opcion" onclick="buscar('Puerta del conductor')">
+                🚪 Puerta del conductor
+            </button>
+
+            <button class="opcion" onclick="buscar('Asiento del conductor')">
+                💺 Asiento del conductor
+            </button>
+
+            <button class="opcion" onclick="buscar('Asiento del copiloto')">
+                💺 Asiento del copiloto
+            </button>
+
+            <button class="opcion" onclick="buscar('Asiento trasero')">
+                🪑 Asiento trasero
+            </button>
+
+            <button class="opcion" onclick="buscar('Maletero')">
+                🧳 Maletero
+            </button>
+
+            <button class="opcion" onclick="buscar('Parasol')">
+                ☀️ Parasol
+            </button>
+
+            <button class="opcion" onclick="buscar('Consola central')">
+                🎛️ Consola central
+            </button>
+
+            <button class="opcion" onclick="buscar('Guantera')">
+                📦 Guantera
+            </button>
+
+        </div>
+
+        <div class="mensaje" id="mensaje"></div>
+    `;
+}
+
+
+function buscar(lugar) {
+
+    const mensaje = document.getElementById("mensaje");
+
+    if (lugar === "Guantera") {
+
+        mensaje.innerHTML = `
+
+            <div class="exito">
+
+                <div class="corazon">🎉</div>
+
+                <h1>
+                    ¡Acertaste! ❤️
+                </h1>
+
+                <p>
+                    Sabía que lo encontrarías.
+                </p>
+
+                <p>
+                    Ahora ve a buscar lo que dejé para ti
+                    en la <strong>guantera</strong>.
+                </p>
+
+                <p>
+                    Hay algo dulce esperándote... 🍫
+                </p>
+
+                <p>
+                    Y cuando lo encuentres,
+                    sabrás qué hacer después.
+                </p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        const respuestas = {
+
+            "Puerta del conductor":
+                "Mmm... no está ahí 😏<br><br>Sigue buscando.",
+
+            "Asiento del conductor":
+                "Nooo... ahí tampoco 😂<br><br>Intenta nuevamente.",
+
+            "Asiento del copiloto":
+                "Tampoco está ahí ❤️<br><br>Pero me gusta cómo estás buscando.",
+
+            "Asiento trasero":
+                "No precisamente... 👀<br><br>Sigue intentando.",
+
+            "Maletero":
+                "Demasiado lejos 😂<br><br>Busca en otro lugar.",
+
+            "Parasol":
+                "No está ahí ☀️<br><br>Aún no lo encuentras.",
+
+            "Consola central":
+                "Casi... pero no 😏<br><br>Sigue buscando."
+        };
+
+        mensaje.innerHTML = `
+            <p>
+                ${respuestas[lugar]}
+            </p>
+        `;
+    }
+}
+
+</script>
 
 </body>
 </html>
